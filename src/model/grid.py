@@ -175,6 +175,19 @@ class SudokuGrid:
             an enumerator over the grid
         """
         return np.ndenumerate(self._array)
+    
+    def flatten(self) -> npt.NDArray[np.uint]:
+        """
+        Returns a 1D copy of the grid array.
+        See: https://numpy.org/doc/2.2/reference/generated/numpy.ndarray.flatten.html
+
+        Returns:
+        --------
+        flat_grid: npt.NDArray[np.uint]
+            a flat copy of the array
+        """
+        return self._array.flatten()
+    
 
     def block_index(self, cell_row: int, cell_column: int) -> int:
         """

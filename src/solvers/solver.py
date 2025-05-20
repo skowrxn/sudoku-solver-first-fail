@@ -1,4 +1,4 @@
-from abc import ABC, abstractmethod
+from abc import ABC, abstractmethod #noqa
 from src.model.grid import SudokuGrid
 from timeit import default_timer as timer
 

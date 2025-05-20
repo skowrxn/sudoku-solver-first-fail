@@ -1,8 +1,8 @@
 from ctypes import CDLL, c_int, Array
-from multiprocessing import Queue, Process
+from multiprocessing import Queue, Process #noqa
 from pathlib import Path
 
-import numpy as np
+import numpy as np #noqa§
 from src.solvers.solver import SudokuSolver
 from src.model.grid import SudokuGrid
 
@@ -109,8 +109,7 @@ class DancingLinksSudokuSolver(SudokuSolver):
         # Implement the method:
         # - convert self._puzzle.size to `c_int`
         #   https://docs.python.org/3/library/ctypes.html#fundamental-data-types
-        # - flatten the self._puzzle._array:
-        #   https://numpy.org/doc/2.2/reference/generated/numpy.ndarray.flat.html
+        # - check the `flatten` method of the SudokuGrid 
         # - and convert it to he C Array
         #   https://docs.python.org/3/library/ctypes.html#arrays
         # - create also an array full of `0`s
