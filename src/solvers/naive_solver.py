@@ -25,7 +25,7 @@ class NaiveSudokuSolver(SudokuSolver):
         col: int
             a column coordinate
 
-        Returns:
+        Return:
         --------
         next_coords: tuple[int,int]
             coordinates (row, col) of the next cell
@@ -48,7 +48,7 @@ class NaiveSudokuSolver(SudokuSolver):
         val: int
             a value to be stored in the cell
 
-        Returns:
+        Return:
         --------
         excluded: bool
             - `True` if the value can**not** be put in the cell
@@ -80,7 +80,7 @@ class NaiveSudokuSolver(SudokuSolver):
         col: int
             column coordinate of the currently considered cell
 
-        Returns:
+        Return:
         --------
         solved: bool
             `True` - if method found the solution

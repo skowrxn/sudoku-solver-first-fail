@@ -51,7 +51,7 @@ class State:
             a variable whose domain we want to get
 
 
-        Returns:
+        Return:
         --------
         domain: Domain
             values available for the given domain
@@ -117,7 +117,7 @@ class State:
         grid: SudokuGrid
             an initial state of the sudoku grid
 
-        Returns:
+        Return:
         --------
         state: State
             a state matching the grid
@@ -154,7 +154,7 @@ class FirstFailSudokuSolver(SudokuSolver):
         Performs a first-fail depth-first-search to solve the sudoku puzzle.
         It always chooses a variable with the smallest domain and tries it first.
 
-        Returns:
+        Return:
         --------
         solved: bool
             `True` - if method found the solution
@@ -177,7 +177,7 @@ class FirstFailSudokuSolver(SudokuSolver):
         """
         Finds a free variable with the smallest domain.
 
-        Returns:
+        Return:
         --------
         var_dom: tuple[Variable, Domain] | None:
             if there are no free variables left,returns `None`

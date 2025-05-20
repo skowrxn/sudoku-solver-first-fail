@@ -11,7 +11,7 @@ def parse_arguments() -> argparse.Namespace:
     Parses the command line arguments.
     Run `python main.py -h` to learn about them.
 
-    Returns:
+    Return:
     --------
     parsed_args: argparse.Namespace
         parsed arguments

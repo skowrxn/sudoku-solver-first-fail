@@ -58,7 +58,7 @@ class DancingLinksSudokuSolver(SudokuSolver):
         """
         Loads the library containing the solver.
 
-        Returns:
+        Return:
         --------
         library: CDLL
             a library containing the algorithm implementation
@@ -95,7 +95,7 @@ class DancingLinksSudokuSolver(SudokuSolver):
         """
         Translates sudoku puzzle to the arguments used by the solver.
 
-        Returns:
+        Return:
         --------
         size: c_int
             a c_int object with size of the puzzle, `9` for the classical one
@@ -105,12 +105,13 @@ class DancingLinksSudokuSolver(SudokuSolver):
             a flat array of the same same as puzzle_array, but containing only zeros
         """
 
-        # TODO:
+       # TODO:
         # Implement the method:
         # - convert self._puzzle.size to `c_int`
         #   https://docs.python.org/3/library/ctypes.html#fundamental-data-types
-        # - check the `flatten` method of the SudokuGrid 
-        # - and convert it to he C Array
+        # - flatten the puzzle grid
+        #   check the `flatten` method of the `SudokuGrid`
+        # - and convert it to a C Array
         #   https://docs.python.org/3/library/ctypes.html#arrays
         # - create also an array full of `0`s
         # Return them
@@ -125,7 +126,7 @@ class DancingLinksSudokuSolver(SudokuSolver):
         solution: Array[c_int]
             an array containing the solution
 
-        Returns:
+        Return:
         --------
         grid: SudokuGrid
             a sudoku grid corresponding to the array
@@ -144,7 +145,7 @@ class DancingLinksSudokuSolver(SudokuSolver):
         """
         Runs the algorithm.
 
-        Returns:
+        Return:
         --------
         grid: SudokuGrid | None
             `None` if the algorithm failed, otherwise a solution

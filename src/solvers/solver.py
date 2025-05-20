@@ -47,7 +47,7 @@ class SudokuSolver(ABC):
         """
         Checks whether the available time has run out.
 
-        Returns:
+        Return:
         --------
         timeout: bool
             - `True` if solver has missed the deadline
@@ -66,7 +66,7 @@ class SudokuSolver(ABC):
     """
     A method implementing the solving algorithm.
 
-    Returns:
+    Return:
     --------
     solution: SudokuGrid | None:
         - a sudoku solution if it has been found
@@ -97,7 +97,7 @@ class SudokuSolver(ABC):
         **kwargs: Any
             extra named arguments passed to the solver constructor
 
-        Returns:
+        Return:
         --------
         solution: SudokuGrid | None:
             - a sudoku solution if it has been found

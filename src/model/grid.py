@@ -115,7 +115,7 @@ class SudokuGrid:
         """
         Returns size of the grid.
 
-        Returns:
+        Return:
         --------
         size: int
             the size of the grid, e.g. 9 for a 9x9 grid.
@@ -127,7 +127,7 @@ class SudokuGrid:
         """
         Returns size of a single block.
 
-        Returns:
+        Return:
         --------
         size: int
             the size of a single block, e.g. 3 for a 9x9 grid.
@@ -144,7 +144,7 @@ class SudokuGrid:
         -----------
         coords: tuple[int, int]
             coordinates (row, col) of the cell
-        Returns:
+        Return:
         --------
         value: np.uint
             a numpy array with values from the specified block
@@ -169,7 +169,7 @@ class SudokuGrid:
         Returns an enumerator over the grid elements.
         See: https://numpy.org/doc/2.2/reference/generated/numpy.ndenumerate.html
 
-        Returns:
+        Return:
         --------
         enumerate: np.ndenumerate
             an enumerator over the grid
@@ -181,13 +181,12 @@ class SudokuGrid:
         Returns a 1D copy of the grid array.
         See: https://numpy.org/doc/2.2/reference/generated/numpy.ndarray.flatten.html
 
-        Returns:
+        Return:
         --------
         flat_grid: npt.NDArray[np.uint]
             a flat copy of the array
         """
         return self._array.flatten()
-    
 
     def block_index(self, cell_row: int, cell_column: int) -> int:
         """
@@ -200,7 +199,7 @@ class SudokuGrid:
         cell_column: int
             index of the cell column
 
-        Returns:
+        Return:
         --------
         block_index: int
             index of the block the specified cell belongs to
@@ -220,7 +219,7 @@ class SudokuGrid:
         block_index: int
             index of the block
 
-        Returns:
+        Return:
         --------
         block: npt.NDArray[np.uint]
             a numpy array with values from the specified block
@@ -235,7 +234,7 @@ class SudokuGrid:
         """
         Creates copy of the grid.
 
-        Returns:
+        Return:
         -------
         copy: SudokuGrid
             a copy of the current grid
@@ -262,7 +261,7 @@ class SudokuGrid:
         -------------------------
         ```
 
-        Returns:
+        Return:
         --------
         ascii_representation: str
             string containing a pretty ascii representation of the grid
@@ -297,7 +296,7 @@ class SudokuGrid:
         lines: list[str]
             lines containing the textual representation
 
-        Returns:
+        Return:
         ---------
         grid: SudokuGrid
             a new sudoku grid
