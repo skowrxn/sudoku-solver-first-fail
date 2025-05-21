@@ -9,7 +9,7 @@ from timeit import default_timer as timer
 def parse_arguments() -> argparse.Namespace:
     """
     Parses the command line arguments.
-    Run `python main.py -h` to learn about them.
+    Run `python benchmark.py -h` to learn about them.
 
     Return:
     --------
