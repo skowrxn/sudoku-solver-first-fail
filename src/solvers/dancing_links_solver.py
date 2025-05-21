@@ -48,7 +48,7 @@ class DancingLinksSudokuSolver(SudokuSolver):
         """
 
         # TODO:
-        # 1. run the algorithm via `self._rung_algorithm`
+        # 1. run the algorithm via `self._run_algorithm`
         # 2. return its result via queue:
         # - https://docs.python.org/3/library/queue.html#queue.Queue.put_nowait
         # 3. if there is an exception, return `None` via the queue
@@ -75,6 +75,7 @@ class DancingLinksSudokuSolver(SudokuSolver):
         #   `import <Python.h>` somewhere at the top
         #   it is required by the file to be easily called from Python
         # - modify the `makefile`:
+        #   0. change EXE to `ss.so`
         #   1. remove two lines starting with `run: $(EXE)`.
         #      we won't run the code directly
         #   2. add `-fPIC -shared` to CFLAGS, so the code would compile to a shared library
