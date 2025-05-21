@@ -72,7 +72,7 @@ class DancingLinksSudokuSolver(SudokuSolver):
         # - download code from https://github.com/nstagman/exact_cover_sudoku
         # - open the `c` directory
         # - modify the `sudoku_solve.c` file by adding
-        #   `import <Python.h>` somewhere at the top
+        #   `#include <Python.h>` somewhere at the top
         #   it is required by the file to be easily called from Python
         # - modify the `makefile`:
         #   0. change EXE to `ss.so`
