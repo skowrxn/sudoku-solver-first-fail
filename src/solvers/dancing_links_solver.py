@@ -98,10 +98,10 @@ class DancingLinksSudokuSolver(SudokuSolver):
 
         Return:
         --------
-        size: c_int
-            a c_int object with size of the puzzle, `9` for the classical one
         puzzle_array: Array[c_int]
             a flat array containing the initial state of the puzzle
+        size: c_int
+            a c_int object with size of the puzzle, `9` for the classical one
         solution_array: Array[c_int]
             a flat array of the same same as puzzle_array, but containing only zeros
         """
