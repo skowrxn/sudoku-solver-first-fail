@@ -57,6 +57,7 @@ class SudokuSolver(ABC):
 
     # TODO:
     # Create an abstract method matching the docstring
+    # with name: `run_algorithm`
     #
     # guide: https://www.geeksforgeeks.org/abstract-classes-in-python/
     # docs: https://docs.python.org/3/library/abc.html#abc.abstractmethod
