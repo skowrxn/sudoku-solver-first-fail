@@ -6,7 +6,7 @@ I regret to inform you that you've received only **1** out of 15 points for this
 There still exist some issues that should be addressed before the deadline: **2025-06-02 15:00:00 CEST (+0200)**. For further details, please refer to the following list:
 
 <details><summary>[1p] Solver abstract run algorithm &gt;&gt; `SudokuSolver` should have the `run_algorithm` method defined</summary></details>
-<details><summary>[1p] Dancing links run algorithm &gt;&gt; not implemented — remove this line</summary></details>
+<details><summary>[1p] Dancing links run algorithm &gt;&gt; the Process object should have a correct `target`</summary></details>
 <details><summary>[1p] Dancing links communicate with external solver &gt;&gt; not implemented — remove this line</summary></details>
 <details><summary>[1p] Dancing links get lib &gt;&gt; `lib/ss.so` does not exist</summary></details>
 <details><summary>[1p] Dancing links c args &gt;&gt; not implemented — remove this line</summary></details>
@@ -23,4 +23,4 @@ There still exist some issues that should be addressed before the deadline: **20
 -----------
 I remain your faithful servant\
 _Bobot_\
-_May 27, AD 2025, 15:56:27 (UTC)_
+_May 27, AD 2025, 21:52:28 (UTC)_
