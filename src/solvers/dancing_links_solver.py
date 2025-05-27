@@ -35,7 +35,17 @@ class DancingLinksSudokuSolver(SudokuSolver):
         # - if it is, terminate it:
         #   https://docs.python.org/3/library/multiprocessing.html#multiprocessing.Process.terminate
         # - raise the TimeoutError
-        raise NotImplementedError("not implemented — remove this line")
+
+        q = Queue()
+        p = Process(target=self._communicate_with_external_solver(q), args=(q,))
+        p.start()
+
+        try:
+            return q.get(timeout=self._time_limit)
+        except Exception():
+            if p.is_alive():
+                p.terminate()
+            raise TimeoutError()
 
     def _communicate_with_external_solver(self, queue: Queue) -> None:
         """
