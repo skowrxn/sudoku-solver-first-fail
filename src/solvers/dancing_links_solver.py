@@ -62,7 +62,12 @@ class DancingLinksSudokuSolver(SudokuSolver):
         # 2. return its result via queue:
         # - https://docs.python.org/3/library/queue.html#queue.Queue.put_nowait
         # 3. if there is an exception, return `None` via the queue
-        raise NotImplementedError("not implemented — remove this line")
+
+        try:
+            queue.put_nowait(self.run_algorithm())
+            return queue.get_nowait()
+        except Exception():
+            return None
 
     def _get_lib(self) -> CDLL:
         """
