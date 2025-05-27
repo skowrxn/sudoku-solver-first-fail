@@ -96,19 +96,9 @@ class SudokuGrid:
     _array: npt.NDArray[np.uint]
 
     def __post_init__(self) -> None:
-        # TODO:
-        # make sure that:
-        # - self._array is 2-dimensional
-        # - self._array is a square
-        # - self._array can be split into blocks
-        #
-        # If the _array fails any of tests,
-        # raise a ValueError
-        #
-        # tip. self._array.shape is a `shape` of the array.
-        #      It's a tuple, e.g. (3,2) is a shape of an array
-        #      with 3 rows and 2 columns.
-        raise NotImplementedError("not implemented — copy from the previous lab")
+        rows, columns = self._array.shape
+        if self._array.ndim != 2 or rows != columns or not math.sqrt(rows).is_integer():
+            raise ValueError
 
     @property
     def size(self) -> int:
@@ -132,9 +122,7 @@ class SudokuGrid:
         size: int
             the size of a single block, e.g. 3 for a 9x9 grid.
         """
-        # TODO:
-        # Implement the method according to the docstring
-        raise NotImplementedError("not implemented — copy from the previous lab")
+        return int(math.sqrt(self._array.shape[0]))
 
     def __getitem__(self, coords: tuple[int, int]) -> np.uint:
         """
@@ -204,11 +192,11 @@ class SudokuGrid:
         block_index: int
             index of the block the specified cell belongs to
         """
-        # TODO:
-        # - implement the method according to the docstring
-        #
-        # tip. check the docstring of the class to know what is the block index
-        raise NotImplementedError("not implemented — copy from the previous lab")
+
+        a = cell_column // self.block_size
+        b = cell_row // self.block_size
+        b *= self.block_size
+        return a+b
 
     def block(self, block_index: int) -> npt.NDArray[np.uint]:
         """
