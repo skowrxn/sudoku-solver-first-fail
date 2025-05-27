@@ -65,7 +65,7 @@ class DancingLinksSudokuSolver(SudokuSolver):
 
         try:
             queue.put_nowait(self._run_algorithm())
-        except Exception():
+        except Exception:
             queue.put_nowait(None)
 
     def _get_lib(self) -> CDLL:
