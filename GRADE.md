@@ -7,7 +7,7 @@ There still exist some issues that should be addressed before the deadline: **20
 
 <details><summary>[1p] Solver abstract run algorithm &gt;&gt; `SudokuSolver` should have the `run_algorithm` method defined</summary></details>
 <details><summary>[1p] Dancing links run algorithm &gt;&gt; the Process object should have a correct `target`</summary></details>
-<details><summary>[1p] Dancing links communicate with external solver &gt;&gt; During handling of the above exception, another exception occurred:</summary><br><br>During&nbsp;handling&nbsp;of&nbsp;the&nbsp;above&nbsp;exception,&nbsp;another&nbsp;exception&nbsp;occurred:<br>catching&nbsp;classes&nbsp;that&nbsp;do&nbsp;not&nbsp;inherit&nbsp;from&nbsp;BaseException&nbsp;is&nbsp;not&nbsp;allowed</details>
+<details><summary>[1p] Dancing links communicate with external solver &gt;&gt; should use `queue.put_nowait` to communicate an exception (via `None` value)</summary></details>
 <details><summary>[1p] Dancing links get lib &gt;&gt; `lib/ss.so` does not exist</summary></details>
 <details><summary>[1p] Dancing links c args &gt;&gt; not implemented — remove this line</summary></details>
 <details><summary>[1p] Dancing links grid from array &gt;&gt; not implemented — remove this line</summary></details>
@@ -23,4 +23,4 @@ There still exist some issues that should be addressed before the deadline: **20
 -----------
 I remain your faithful servant\
 _Bobot_\
-_May 27, AD 2025, 22:00:50 (UTC)_
+_May 27, AD 2025, 22:09:02 (UTC)_
