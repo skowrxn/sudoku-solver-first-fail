@@ -1,15 +1,12 @@
 Dear Student,
 
-I regret to inform you that you've received only **2** out of 15 points for this assignment.
-<details><summary>You have already managed to pass 2 tests, so that is encouraging!</summary>&emsp;☑&nbsp;[1p]&nbsp;Solver&nbsp;static&nbsp;solve<br>&emsp;☑&nbsp;[1p]&nbsp;Dancing&nbsp;links&nbsp;communicate&nbsp;with&nbsp;external&nbsp;solver</details>
+I regret to inform you that you've received only **5** out of 15 points for this assignment.
+<details><summary>You have already managed to pass 5 tests, so that is encouraging!</summary>&emsp;☑&nbsp;[1p]&nbsp;Solver&nbsp;static&nbsp;solve<br>&emsp;☑&nbsp;[1p]&nbsp;Dancing&nbsp;links&nbsp;run&nbsp;algorithm<br>&emsp;☑&nbsp;[1p]&nbsp;Dancing&nbsp;links&nbsp;communicate&nbsp;with&nbsp;external&nbsp;solver<br>&emsp;☑&nbsp;[1p]&nbsp;Dancing&nbsp;links&nbsp;c&nbsp;args<br>&emsp;☑&nbsp;[1p]&nbsp;Dancing&nbsp;links&nbsp;grid&nbsp;from&nbsp;array</details>
 
 There still exist some issues that should be addressed before the deadline: **2025-06-02 15:00:00 CEST (+0200)**. For further details, please refer to the following list:
 
 <details><summary>[1p] Solver abstract run algorithm &gt;&gt; `SudokuSolver` should have the `run_algorithm` method defined</summary></details>
-<details><summary>[1p] Dancing links run algorithm &gt;&gt; the Process object should have a correct `target`</summary></details>
 <details><summary>[1p] Dancing links get lib &gt;&gt; `lib/ss.so` does not exist</summary></details>
-<details><summary>[1p] Dancing links c args &gt;&gt; not implemented — remove this line</summary></details>
-<details><summary>[1p] Dancing links grid from array &gt;&gt; not implemented — remove this line</summary></details>
 <details><summary>[1p] First fail dfs &gt;&gt; _dfs doesn&#x27;t raise the TimeoutError when needed</summary></details>
 <details><summary>[1p] First fail choose variable &gt;&gt; not implemented — remove this line</summary></details>
 <details><summary>[1p] First fail state domain &gt;&gt; not implemented — remove this line</summary></details>
@@ -22,4 +19,4 @@ There still exist some issues that should be addressed before the deadline: **20
 -----------
 I remain your faithful servant\
 _Bobot_\
-_May 27, AD 2025, 22:11:00 (UTC)_
+_May 27, AD 2025, 22:13:15 (UTC)_
