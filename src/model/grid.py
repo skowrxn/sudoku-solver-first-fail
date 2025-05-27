@@ -193,6 +193,7 @@ class SudokuGrid:
             index of the block the specified cell belongs to
         """
 
+        #dla col 6 row 4
         a = cell_column // self.block_size
         b = cell_row // self.block_size
         b *= self.block_size
@@ -212,11 +213,14 @@ class SudokuGrid:
         block: npt.NDArray[np.uint]
             a numpy array with values from the specified block
         """
-        # TODO:
-        # - implement the method according to the docstring
-        # tip 1. use array slicing: https://www.w3schools.com/python/numpy/numpy_array_slicing.asp
-        # tip 2. check the docstring of the class to know what is the block index
-        raise NotImplementedError("not implemented — copy from the previous lab")
+
+        a = block_index
+        block_row = (block_index // self.block_size) * self.block_size
+        block_col = (block_index % self.block_size) * self.block_size
+        return self._array[
+               block_row : block_row + self.block_size,
+               block_col : block_col + self.block_size
+               ]
 
     def copy(self) -> SudokuGrid:
         """
@@ -254,13 +258,38 @@ class SudokuGrid:
         ascii_representation: str
             string containing a pretty ascii representation of the grid
         """
+
+        block_size = self.block_size
+        size = self.size
+
+        separator_len = (block_size-1)*3 + 4 + block_size*(2*block_size - 1)
+        separator = '-' * separator_len
+
+        lines = []
+
+        for row in range(size):
+            if row%block_size == 0:
+                lines.append(separator)
+            line = "| "
+            for col in range(size):
+                if col%block_size == 0:
+                    line = line[:-1] #usuwamy przecinek
+                    line.join(" | ")
+
+                num = self._array[row, col]
+                line.join(f"{num},")
+
+            line = line[:-1]
+            line.join(" |")
+            lines.append(line)
+
+        return '\n'.join(lines)
         # TODO:
         # Implement the method according to the docstring.
         # - if `lines` are ill-formatted, raise a ValueError
         # tip. there are many ways to initialize an array
         #      the easiest is to start with normal lists:
         #      https://numpy.org/devdocs/user/basics.creation.html#converting-python-sequences-to-numpy-arrays
-        raise NotImplementedError("not implemented — copy from the previous lab")
 
     @staticmethod
     def from_text(lines: list[str]) -> SudokuGrid:
