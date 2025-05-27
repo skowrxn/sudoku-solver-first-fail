@@ -270,26 +270,20 @@ class SudokuGrid:
         for row in range(size):
             if row%block_size == 0:
                 lines.append(separator)
-            line = "| "
+            line = '| '
             for col in range(size):
                 if col%block_size == 0:
                     line = line[:-1] #usuwamy przecinek
-                    line.join(" | ")
-
+                    line += ' | '
                 num = self._array[row, col]
-                line.join(f"{num},")
+                line += f"{num},"
 
             line = line[:-1]
-            line.join(" |")
+            line += ' |'
             lines.append(line)
+        lines.append(separator)
 
         return '\n'.join(lines)
-        # TODO:
-        # Implement the method according to the docstring.
-        # - if `lines` are ill-formatted, raise a ValueError
-        # tip. there are many ways to initialize an array
-        #      the easiest is to start with normal lists:
-        #      https://numpy.org/devdocs/user/basics.creation.html#converting-python-sequences-to-numpy-arrays
 
     @staticmethod
     def from_text(lines: list[str]) -> SudokuGrid:
@@ -319,10 +313,23 @@ class SudokuGrid:
             a new sudoku grid
         """
 
-        # TODO:
-        # Implement the method according to the docstring.
-        # - if `lines` are ill-formatted, raise a ValueError
-        # tip. there are many ways to initialize an array
-        #      the easiest is to start with normal lists:
-        #      https://numpy.org/devdocs/user/basics.creation.html#converting-python-sequences-to-numpy-arrays
-        raise NotImplementedError("not implemented — copy from the previous lab")
+        if not lines:
+            raise ValueError()
+        
+        size = len(lines[0].split(','))
+        
+        if not math.sqrt(size).is_integer():
+            raise ValueError()
+        
+        block_size = int(math.sqrt(size))
+        merged = []
+        
+        for line in lines:
+            nums = line.split(',')
+            if len(nums) != size:
+                raise ValueError
+            for num in nums:
+                merged.append(int(num))
+
+        grid = np.array(merged, dtype=np.uint).reshape(size, size)
+        return SudokuGrid(grid)
