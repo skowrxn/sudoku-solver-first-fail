@@ -15,19 +15,19 @@ class DancingLinksSudokuSolver(SudokuSolver):
     """
 
     def run_algorithm(self) -> SudokuGrid | None:
-        queue = Queue()
-        process = Process(target=self._communicate_with_external_solver, args=(queue,))
-        process.start()
-        
+        q = Queue()
+        p = Process(target=self._communicate_with_external_solver, args=(q,))
+        p.start()
+
         try:
-            result = queue.get(timeout=self._time_limit)
-            return result
+            return q.get(timeout=self._time_limit)
         except Exception:
-            if process.is_alive():
-                process.terminate()
+            if p.is_alive():
+                p.terminate()
             raise TimeoutError()
 
-        
+
+
 
     def _communicate_with_external_solver(self, queue: Queue) -> None:
         """
