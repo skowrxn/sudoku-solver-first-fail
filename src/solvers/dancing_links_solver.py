@@ -42,7 +42,7 @@ class DancingLinksSudokuSolver(SudokuSolver):
 
         try:
             return q.get(timeout=self._time_limit)
-        except Exception():
+        except Exception:
             if p.is_alive():
                 p.terminate()
             raise TimeoutError()
@@ -64,10 +64,9 @@ class DancingLinksSudokuSolver(SudokuSolver):
         # 3. if there is an exception, return `None` via the queue
 
         try:
-            queue.put_nowait(self.run_algorithm())
-            return queue.get_nowait()
+            queue.put_nowait(self._run_algorithm())
         except Exception():
-            return None
+            queue.put_nowait(None)
 
     def _get_lib(self) -> CDLL:
         """
