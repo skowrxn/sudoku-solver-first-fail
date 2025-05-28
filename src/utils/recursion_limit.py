@@ -27,19 +27,11 @@ class recursion_limit_set_to:
             a desired recursion limit
         """
 
-        # TODO:
-        # 1. set the `limit` attribute using the parameter
-        # 2. set the `original_limit` attribute using a correct function form `sys` module
-        #
-        # tip. read class documentation
-        raise NotImplementedError("not implemented — remove this line")
+        self.limit = limit
+        self.original_limit = sys.getrecursionlimit()
 
     def __enter__(self, *args, **kwargs) -> None:
-        # TODO:
-        # Override the recursion limit according to the class documentation
-        raise NotImplementedError("not implemented — remove this line")
+        sys.setrecursionlimit(self.limit)
 
     def __exit__(self, *args) -> bool:
-        # TODO:
-        # Restore the original recursion limit according to the class documentation
-        raise NotImplementedError("not implemented — remove this line")
+        sys.setrecursionlimit(self.original_limit)
