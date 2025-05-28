@@ -1,8 +1,10 @@
 import argparse
 from enum import Enum
-from src.solvers.naive_solver import NaiveSolver
-from src.solvers.first_fail_solver import FirstFailSolver
-from src.solvers.dancing_links_solver import DancingLinksSolver
+
+from src.model.grid import SudokuGrid
+from src.solvers.dancing_links_solver import DancingLinksSudokuSolver
+from src.solvers.first_fail_solver import FirstFailSudokuSolver
+from src.solvers.naive_solver import NaiveSudokuSolver
 
 
 class SudokuSolverType(Enum):
@@ -10,15 +12,6 @@ class SudokuSolverType(Enum):
     first_fail = 'first_fail' 
     dancing_links = 'dancing_links'
 
-
-def get_solver(solver_type):
-    if solver_type == SudokuSolverType.naive:
-        return NaiveSolver
-    elif solver_type == SudokuSolverType.first_fail:
-        return FirstFailSolver
-    elif solver_type == SudokuSolverType.dancing_links:
-        return DancingLinksSolver
-    return NaiveSolver
 
 def main():
     parser = argparse.ArgumentParser(
@@ -34,10 +27,23 @@ def main():
                        type=float,
                        help='time limit for the solver (in seconds)')
     args = parser.parse_args()
-    
-    solver_class = get_solver(args.algorithm)
-    solver = solver_class(time_limit=args.time_limit)
-    solver.run(args.puzzle_path)
+
+    with open(args.puzzle_path, 'r') as file:
+        grid = SudokuGrid.from_text(file.readlines())
+        match args.algorithm:
+            case SudokuSolverType.naive:
+                result = NaiveSudokuSolver(grid, args.time_limit).solve(grid, args.time_limit)
+                if result is None:
+                    return 1
+            case SudokuSolverType.first_fail:
+                result = FirstFailSudokuSolver(grid, args.time_limit).solve(grid, args.time_limit)
+                if result is None:
+                    return 1
+            case SudokuSolverType.dancing_links:
+                result = DancingLinksSudokuSolver(grid, args.time_limit).solve(grid, args.time_limit)
+                if result is None:
+                    return 1
+        return 0
 
 
 if __name__ == "__main__":
