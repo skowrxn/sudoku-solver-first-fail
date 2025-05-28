@@ -35,14 +35,17 @@ def main():
                 result = NaiveSudokuSolver(grid, args.time_limit).solve(grid, args.time_limit)
                 if result is None:
                     return 1
+                print(result.__str__())
             case SudokuSolverType.first_fail:
                 result = FirstFailSudokuSolver(grid, args.time_limit).solve(grid, args.time_limit)
                 if result is None:
                     return 1
+                print(result.__str__())
             case SudokuSolverType.dancing_links:
                 result = DancingLinksSudokuSolver(grid, args.time_limit).solve(grid, args.time_limit)
                 if result is None:
                     return 1
+                print(result.__str__())
         return 0
 
 
