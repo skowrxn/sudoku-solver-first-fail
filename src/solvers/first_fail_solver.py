@@ -162,17 +162,21 @@ class FirstFailSudokuSolver(SudokuSolver):
             `False` - otherwise
         """
 
-        a = self._choose_variable()
-        if a is None:
+        variable_and_domain = self._choose_variable()
+        if variable_and_domain is None:
             return True
 
-        var, domain = a
+        if self._timeout():
+            raise TimeoutError()
+
+        var, domain = variable_and_domain
         self.state.assign(var, domain.pop())
+
         if not self._dfs():
             self.state.remove_assignment(var)
             return False
         return True
-        # TODO:
+
         # Implement the search.
         # 1. choose a free variable using `self._choose_variable`
         #   - if there is None, the solver has succeeded
@@ -202,13 +206,6 @@ class FirstFailSudokuSolver(SudokuSolver):
         for var in free_variables:
             domain = self.state.domain(var)
             if len(domain) < lowest_domain[0]:
-                lowest_domain = len(domain), domain, var
+                lowest_domain = len(domain), var, domain
 
         return lowest_domain[1], lowest_domain[2]
-
-        # TODO:
-        # Implement the method according to the docstring.
-        # Useful stuff:
-        # - self.state.free_variables
-        # - self.state.domain
-        # - https://docs.python.org/3/library/functions.html#min
