@@ -121,9 +121,9 @@ class SudokuSolver(ABC):
 
         # TODO:
         # this method should behave according to the docstring, i.e.
-        # 1. create a solver of type `cls`
-        #   - solver constructor has `puzzle` and `time_limit` args,
-        #     but the constructor may be extended by the subclass.
+        #         # 1. create a solver of type `cls`
+        #         #   - solver constructor has `puzzle` and `time_limit` args,
+        #         #     but the constructor may be extended by the subclass.
         #     Therefore, pass forward also args and kwargs.
         #         #     Some explanation:https://www.geeksforgeeks.org/args-kwargs-python/
         # 2. return result of the `run_algorithm` method
