@@ -134,6 +134,7 @@ class State:
             else:
                 free_variables.add(Variable((row, col, val)))
 
+        return State(grid, free_variables, row_domains, col_domains, block_domains)
 
         # TODO:
         # Create an initial state as stated in the docstring
@@ -187,16 +188,6 @@ class FirstFailSudokuSolver(SudokuSolver):
             self.state.remove_assignment(var)
             return False
         return True
-
-        # Implement the search.
-        # 1. choose a free variable using `self._choose_variable`
-        #   - if there is None, the solver has succeeded
-        # 2. if there is a timeout, raise an appropriate exception
-        # 3. try to assign a value to the variable and run the method recursively
-        #   - take a value from the variable's domain
-        #   - use self.state.assign to assign a value
-        #   - use self.state.remove_assignment to revert the assignment
-        # 4. return `False` if the solution has not been found
 
     def _choose_variable(self) -> tuple[Variable, Domain] | None:
         """
