@@ -6,10 +6,10 @@ I'm happy to announce that you've managed to get **12** out of 15 points for thi
 There still exist some issues that should be addressed before the deadline: **2025-06-02 15:00:00 CEST (+0200)**. For further details, please refer to the following list:
 
 <details><summary>[1p] Dancing links get lib &gt;&gt; `lib/ss.so` does not exist</summary></details>
-<details><summary>[1p] Main accepts new argument &gt;&gt; the `main.py` file does not exist</summary></details>
+<details><summary>[1p] Main accepts new argument &gt;&gt; `python -a naive -t 0.1 puzzles/sudokuN2num0.txt` should finish with exit code `0`, instead it produced code `1`</summary></details>
 <details><summary>[1p] Solver static solve &gt;&gt; `solve` should pass `*args` to the constructor</summary></details>
 
 -----------
 I remain your faithful servant\
 _Bobot_\
-_May 28, AD 2025, 20:41:19 (UTC)_
+_May 28, AD 2025, 20:55:51 (UTC)_
