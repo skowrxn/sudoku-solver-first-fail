@@ -1,12 +1,11 @@
 Dear Student,
 
-I regret to inform you that you've received only **6** out of 15 points for this assignment.
-<details><summary>You have already managed to pass 6 tests, so that is encouraging!</summary>&emsp;☑&nbsp;[1p]&nbsp;Solver&nbsp;abstract&nbsp;run&nbsp;algorithm<br>&emsp;☑&nbsp;[1p]&nbsp;Dancing&nbsp;links&nbsp;run&nbsp;algorithm<br>&emsp;☑&nbsp;[1p]&nbsp;Dancing&nbsp;links&nbsp;communicate&nbsp;with&nbsp;external&nbsp;solver<br>&emsp;☑&nbsp;[1p]&nbsp;Dancing&nbsp;links&nbsp;c&nbsp;args<br>&emsp;☑&nbsp;[1p]&nbsp;Dancing&nbsp;links&nbsp;grid&nbsp;from&nbsp;array<br>&emsp;☑&nbsp;[1p]&nbsp;First&nbsp;fail&nbsp;dfs</details>
+I regret to inform you that you've received only **7** out of 15 points for this assignment.
+<details><summary>You have already managed to pass 7 tests, so that is encouraging!</summary>&emsp;☑&nbsp;[1p]&nbsp;Solver&nbsp;abstract&nbsp;run&nbsp;algorithm<br>&emsp;☑&nbsp;[1p]&nbsp;Dancing&nbsp;links&nbsp;run&nbsp;algorithm<br>&emsp;☑&nbsp;[1p]&nbsp;Dancing&nbsp;links&nbsp;communicate&nbsp;with&nbsp;external&nbsp;solver<br>&emsp;☑&nbsp;[1p]&nbsp;Dancing&nbsp;links&nbsp;c&nbsp;args<br>&emsp;☑&nbsp;[1p]&nbsp;Dancing&nbsp;links&nbsp;grid&nbsp;from&nbsp;array<br>&emsp;☑&nbsp;[1p]&nbsp;First&nbsp;fail&nbsp;dfs<br>&emsp;☑&nbsp;[1p]&nbsp;First&nbsp;fail&nbsp;choose&nbsp;variable</details>
 
 There still exist some issues that should be addressed before the deadline: **2025-06-02 15:00:00 CEST (+0200)**. For further details, please refer to the following list:
 
 <details><summary>[1p] Dancing links get lib &gt;&gt; `lib/ss.so` does not exist</summary></details>
-<details><summary>[1p] First fail choose variable &gt;&gt; `_choose_variable` has not chosen variable with the smallest domain</summary>-&nbsp;got:&nbsp;({4},&nbsp;(2,&nbsp;3,&nbsp;3))<br>-&nbsp;expected:&nbsp;((2,&nbsp;3,&nbsp;3),&nbsp;{4})<br>-&nbsp;state:<br>&emsp;-&nbsp;free&nbsp;variables:&nbsp;(1,&nbsp;2,&nbsp;1),&nbsp;(2,&nbsp;2,&nbsp;3),&nbsp;(2,&nbsp;3,&nbsp;3),&nbsp;(3,&nbsp;2,&nbsp;3),&nbsp;(0,&nbsp;1,&nbsp;0),&nbsp;(0,&nbsp;0,&nbsp;0),&nbsp;(1,&nbsp;3,&nbsp;1),&nbsp;(3,&nbsp;3,&nbsp;3),&nbsp;(1,&nbsp;0,&nbsp;0),&nbsp;(3,&nbsp;1,&nbsp;2)<br>&emsp;-&nbsp;their&nbsp;domains:&nbsp;{3,&nbsp;4},&nbsp;{1,&nbsp;4},&nbsp;{4},&nbsp;{1,&nbsp;3},&nbsp;{4},&nbsp;{3},&nbsp;{3,&nbsp;4},&nbsp;{2,&nbsp;3},&nbsp;{1,&nbsp;3},&nbsp;{1}</details>
 <details><summary>[1p] First fail state domain &gt;&gt; not implemented — remove this line</summary></details>
 <details><summary>[1p] First fail state assign &gt;&gt; not implemented — remove this line</summary></details>
 <details><summary>[1p] First fail state remove assignment &gt;&gt; not implemented — remove this line</summary></details>
@@ -18,4 +17,4 @@ There still exist some issues that should be addressed before the deadline: **20
 -----------
 I remain your faithful servant\
 _Bobot_\
-_May 28, AD 2025, 18:52:29 (UTC)_
+_May 28, AD 2025, 19:35:56 (UTC)_
