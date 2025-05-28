@@ -57,6 +57,7 @@ class State:
             values available for the given domain
         """
 
+
         # TODO:
         # Implement the method as described in the docstring.
         #
@@ -161,6 +162,16 @@ class FirstFailSudokuSolver(SudokuSolver):
             `False` - otherwise
         """
 
+        a = self._choose_variable()
+        if a is None:
+            return True
+
+        var, domain = a
+        self.state.assign(var, domain.pop())
+        if not self._dfs():
+            self.state.remove_assignment(var)
+            return False
+        return True
         # TODO:
         # Implement the search.
         # 1. choose a free variable using `self._choose_variable`
@@ -171,7 +182,6 @@ class FirstFailSudokuSolver(SudokuSolver):
         #   - use self.state.assign to assign a value
         #   - use self.state.remove_assignment to revert the assignment
         # 4. return `False` if the solution has not been found
-        raise NotImplementedError("not implemented — remove this line")
 
     def _choose_variable(self) -> tuple[Variable, Domain] | None:
         """
@@ -183,10 +193,22 @@ class FirstFailSudokuSolver(SudokuSolver):
             if there are no free variables left,returns `None`
             otherwise returns a variable with the smallest domain (together with its domain)
         """
+
+        free_variables = self.state.free_variables
+        if not free_variables:
+            return None
+
+        lowest_domain = float('inf'), None, None
+        for var in free_variables:
+            domain = self.state.domain(var)
+            if len(domain) < lowest_domain[0]:
+                lowest_domain = len(domain), domain, var
+
+        return lowest_domain[1], lowest_domain[2]
+
         # TODO:
         # Implement the method according to the docstring.
         # Useful stuff:
         # - self.state.free_variables
         # - self.state.domain
         # - https://docs.python.org/3/library/functions.html#min
-        raise NotImplementedError("not implemented — remove this line")
