@@ -6,9 +6,9 @@ I'm happy to announce that you've managed to get **13** out of 15 points for thi
 There still exist some issues that should be addressed before the deadline: **2025-06-02 15:00:00 CEST (+0200)**. For further details, please refer to the following list:
 
 <details><summary>[1p] Dancing links get lib &gt;&gt; `lib/ss.so` does not exist</summary></details>
-<details><summary>[1p] Main accepts new argument &gt;&gt; `python -a naive -t 0.1 puzzles/sudokuN2num0.txt` produces incorrect standard output:</summary>-&nbsp;got:<br><br>-&nbsp;expected:<br>-------------<br>|&nbsp;3,4&nbsp;|&nbsp;2,1&nbsp;|<br>|&nbsp;1,2&nbsp;|&nbsp;4,3&nbsp;|<br>-------------<br>|&nbsp;2,3&nbsp;|&nbsp;1,4&nbsp;|<br>|&nbsp;4,1&nbsp;|&nbsp;3,2&nbsp;|<br>-------------</details>
+<details><summary>[1p] Main accepts new argument &gt;&gt; `python -a naive -t 0.1 puzzles/unsolvableN2num1.txt` should finish with exit code `1`, instead it produced code `0`</summary></details>
 
 -----------
 I remain your faithful servant\
 _Bobot_\
-_May 28, AD 2025, 21:20:27 (UTC)_
+_May 28, AD 2025, 22:07:18 (UTC)_
