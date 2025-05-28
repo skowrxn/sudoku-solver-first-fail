@@ -57,14 +57,8 @@ class State:
             values available for the given domain
         """
 
-
-        # TODO:
-        # Implement the method as described in the docstring.
-        #
-        # tip 1. read Variable type documentation
-        # tip 2. use self.row_domains, self.col_domains, self.block_domains
-        # tip 3. docs: https://docs.python.org/3.13/library/stdtypes.html#set.intersection
-        raise NotImplementedError("not implemented — remove this line")
+        row, col, block = variable
+        return Domain(set.intersection(self.row_domains[row], self.col_domains[col], self.block_domains[block]))
 
     def assign(self, variable: Variable, value: int) -> None:
         """
@@ -77,15 +71,14 @@ class State:
         value: int
             what value should we assign
         """
-        # TODO:
-        # Update the state according to the docstring
-        # tip. you need to modify:
-        #   - self.grid
-        #   - self.free_variables
-        #   - self.row_domains
-        #   - self.col_domains
-        #   - self.block_domains
-        raise NotImplementedError("not implemented — remove this line")
+
+        row, col, block = variable
+        self.row_domains[row].remove(value)
+        self.col_domains[col].remove(value)
+        self.block_domains[block].remove(value)
+        self.free_variables.remove(variable)
+
+        self.grid._array[row][col] = value
 
     def remove_assignment(self, variable: Variable) -> None:
         """
@@ -96,17 +89,15 @@ class State:
         variable: Variable
             an already assigned variable
         """
-        # TODO:
-        # Update the state according to the docstring.
-        # tip 1. you need to modify:
-        #   - self.grid
-        #   - self.free_variables
-        #   - self.row_domains
-        #   - self.col_domains
-        #   - self.block_domains
-        #
-        # tip 2. grid contains the current value
-        raise NotImplementedError("not implemented — remove this line")
+
+        row, col, block = variable
+        value = self.grid._array[row][col]
+
+        self.grid._array[row][col] = 0
+        self.free_variables.add(variable)
+        self.row_domains[row].add(value)
+        self.col_domains[col].add(value)
+        self.block_domains[block].add(value)
 
     @staticmethod
     def from_grid(grid: SudokuGrid) -> State:
@@ -123,13 +114,33 @@ class State:
         state: State
             a state matching the grid
         """
+
+        # grid: SudokuGrid
+        # free_variables: set[Variable]
+        # row_domains: list[Domain]
+        # col_domains: list[Domain]
+        # block_domains: list[Domain]
+
+        default_domain = set(range(1, grid.size+1))
+        free_variables = set()
+        row_domains = col_domains = block_domains = [Domain(default_domain) for _ in range(grid.size)]
+
+        for (row, col), val in grid.enumerate():
+            if val != 0:
+                block = grid.block_index(row, col)
+                row_domains[row].remove(val)
+                col_domains[col].remove(val)
+                block_domains[block].remove(val)
+            else:
+                free_variables.add(Variable((row, col, val)))
+
+
         # TODO:
         # Create an initial state as stated in the docstring
         #
         # tips.
         # - to enumerate over the grid use:
         #   `for (row, col), val in grid.enumerate():`
-        raise NotImplementedError("not implemented — remove this line")
 
 
 class FirstFailSudokuSolver(SudokuSolver):
