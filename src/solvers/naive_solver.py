@@ -30,10 +30,14 @@ class NaiveSudokuSolver(SudokuSolver):
         next_coords: tuple[int,int]
             coordinates (row, col) of the next cell
         """
-        # TODO:
-        # Copy code from the previous lab.
-        # Use `self._puzzle` instead of the `self.puzzle` and `self.solution`
-        raise NotImplementedError("not implemented — copy from the previous lab")
+
+        if col != (self._puzzle._array.shape[0] - 1):
+            col += 1
+        else:
+            col = 0
+            row += 1
+
+        return row, col
 
     def _is_excluded(self, row: int, col: int, val: int) -> bool:
         """
@@ -54,10 +58,12 @@ class NaiveSudokuSolver(SudokuSolver):
             - `True` if the value can**not** be put in the cell
             - `False` otherwise
         """
-        # TODO:
-        # Copy code from the previous lab.
-        # Use `self._puzzle` instead of the `self.puzzle` and `self.solution`
-        raise NotImplementedError("not implemented — copy from the previous lab")
+
+        if val in self._puzzle._array[row, :] or val in self._puzzle._array[:, col]:
+            return True
+
+        block_index = self._puzzle.block_index(row, col)
+        return val in self._puzzle.block(block_index)
 
     def _dfs(self, row: int, col: int) -> bool:
         """
@@ -86,7 +92,26 @@ class NaiveSudokuSolver(SudokuSolver):
             `True` - if method found the solution
             `False` - otherwise
         """
-        # TODO:
-        # Copy code from the previous lab.
-        # Use `self._puzzle` instead of the `self.puzzle` and `self.solution`
-        raise NotImplementedError("not implemented — copy from the previous lab")
+
+        arr = self._puzzle
+
+        if row >= arr.size:
+            return True
+
+        if self._timeout():
+            raise TimeoutError
+
+        new_row, new_col = self._increment_coordinates(row, col)
+
+        if arr[row, col] != 0:
+            return self._dfs(new_row, new_col)
+
+        for val in range(1,arr.size+1):
+            if self._is_excluded(row, col, val):
+                continue
+            arr[row, col] = val
+            if self._dfs(new_row, new_col):
+                return True
+            arr[row, col] = 0
+
+        return False
