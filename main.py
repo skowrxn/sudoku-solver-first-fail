@@ -12,20 +12,21 @@ class SudokuSolverType(Enum):
     first_fail = 'first_fail' 
     dancing_links = 'dancing_links'
 
-
 def main():
     parser = argparse.ArgumentParser(
         prog='sudolver',
         description='Sudolver - yet another sudoku solver.'
     )
-    parser.add_argument('puzzle_path', help='path to the file containing a sudoku puzzle')
-    parser.add_argument('--algorithm', '-a', 
+    parser.add_argument('-a', '--algorithm',
                        type=SudokuSolverType,
                        choices=list(SudokuSolverType),
+                       default=SudokuSolverType.naive,
                        help='algorithm used to solver the sudoku')
     parser.add_argument('--time-limit', '-t',
                        type=float,
                        help='time limit for the solver (in seconds)')
+    parser.add_argument('puzzle_path', help='path to the file containing a sudoku puzzle')
+
     args = parser.parse_args()
 
     with open(args.puzzle_path, 'r') as file:
